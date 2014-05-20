@@ -1,0 +1,41 @@
+<div class="row">
+	<div class="col-sm-6">
+		<div id="map">
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div id="parkInfo">
+		</div>
+	</div>
+</div>
+
+<script src="https://maps.googleapis.com/maps/api/js?sensor=FALSE"></script>
+
+<script>
+	$(document).ready(function(){
+
+		var mapOptions = {
+          center: new google.maps.LatLng(45.54, -122.6),
+          zoom: 13
+        };
+
+        var map = new google.maps.Map($('#map').get(0), mapOptions);
+
+		$.get('/api/parks/or/portland', function(data){
+			if(!Array.isArray(data)) return console.error('/api/parks/or/portland did not return array as expected.');
+			data.forEach(function(park){
+				var marker = new google.maps.Marker({
+					position: park.loc,
+					map: map,
+					title: park.name,
+				});
+				google.maps.event.addListener(marker, 'click', function(){
+					$.get('/partials/park-info/' + park.id, function(data){
+						$('#parkInfo').html(data);
+					});
+				});
+			});
+		});
+		
+	});
+</script>

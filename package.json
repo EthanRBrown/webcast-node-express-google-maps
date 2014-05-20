@@ -1,0 +1,24 @@
+{
+  "name": "parkfindr",
+  "version": "0.0.0",
+  "description": "webcast-node-express-google-maps ================================",
+  "main": "parkfindr.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EthanRBrown/webcast-node-express-google-maps"
+  },
+  "author": "Ethan Brown <e@zepln.com>",
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/EthanRBrown/webcast-node-express-google-maps/issues"
+  },
+  "homepage": "https://github.com/EthanRBrown/webcast-node-express-google-maps",
+  "dependencies": {
+    "morgan": "~1.1.0",
+    "express": "~4.2.0",
+    "express3-handlebars": "~0.5.0"
+  }
+}
